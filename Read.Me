@@ -1,0 +1,100 @@
+## **Project Title: Inventory Management System**
+
+### **Project Description:**
+The Inventory Management System is designed to help businesses efficiently manage products, stock levels, suppliers, and sales. It enables users to perform CRUD (Create, Read, Update, Delete) operations for products and suppliers. The system supports tracking stock movements, managing sales orders, and performing stock level checks. It also ensures that stock levels are updated in real time when products are sold or when stock movements are recorded.
+
+This project is implemented using Django for the backend, with a frontend built using HTML, CSS, and JavaScript. It uses SQLite for the database (or MongoDB as an alternative).
+
+### **Key Features:**
+1. **Product Management:**
+   - Add, edit, and delete products.
+   - View all products in the inventory.
+   - Product details include name, description, category, price, stock quantity, and supplier.
+
+2. **Supplier Management:**
+   - Add, edit, and delete suppliers.
+   - View all suppliers with their name, email, phone, and address.
+
+3. **Sale Order Management:**
+   - Create, update, cancel, and complete sale orders.
+   - Check stock availability before creating orders.
+   - Automatically adjust stock quantities when a sale is completed or canceled.
+
+4. **Stock Movement:**
+   - Record stock movements (incoming and outgoing).
+   - Maintain stock levels with appropriate updates.
+   - Prevent negative stock levels by validating movements.
+
+5. **Stock Level Check:**
+   - A feature that allows users to check the current stock levels for each product.
+
+6. **Filtering (Bonus Feature):**
+   - Implement filtering options such as filtering by product category or sale order status.
+
+### **Tech Stack:**
+- **Backend:** Django (Python)
+- **Frontend:** HTML, CSS, JavaScript
+- **Database:** SQLite (default for local development), with the potential to use MongoDB if desired.
+- **Version Control:** Git (for source code versioning)
+  
+### **Technologies Used:**
+- **Django Framework:** To handle the backend logic and provide the MVC architecture.
+- **SQLite/MongoDB:** Used to store and manage data.
+- **HTML, CSS, JavaScript:** For creating the user interface and ensuring the frontend interacts seamlessly with the backend.
+- **Django Admin Interface:** For easy management of products, suppliers, and sales directly from the admin panel.
+
+### **Installation Instructions:**
+1. Clone the repository using:
+   ```bash
+   git clone <repository_url>
+   ```
+2. Install the required dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. Set up the database and apply migrations:
+   ```bash
+   python manage.py migrate
+   ```
+4. Run the development server:
+   ```bash
+   python manage.py runserver
+   ```
+5. Visit `http://127.0.0.1:8000` to access the Inventory Management System.
+
+### **How to Use:**
+1. **Accessing the system:**
+   - Navigate to the home page at `http://127.0.0.1:8000/`.
+   - Use the Django admin panel (`http://127.0.0.1:8000/admin`) to manage products, suppliers, and sales orders.
+
+2. **Managing Products:**
+   - Add new products through the admin interface.
+   - Edit or delete existing products.
+
+3. **Managing Suppliers:**
+   - Add, edit, or remove suppliers.
+
+4. **Handling Sale Orders:**
+   - Create new sale orders, edit them, mark them as completed or canceled.
+   - Automatically adjust stock quantities based on sale order status.
+
+5. **Stock Movement:**
+   - Track incoming and outgoing stock.
+
+6. **Stock Level Check:**
+   - Check the stock level for each product on the home page or through the admin interface.
+
+### **Testing:**
+- You can run tests by using the following command:
+  ```bash
+  python manage.py test
+  ```
+
+### **Deployment:**
+- This application can be deployed to any platform supporting Django, such as Heroku, AWS, or DigitalOcean.
+
+### **Future Improvements:**
+- Integrating email notifications for order updates.
+- Implementing more sophisticated filtering and sorting for products and orders.
+- Adding more detailed user roles and permissions for more granular access control.
+

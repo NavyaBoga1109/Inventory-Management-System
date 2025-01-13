@@ -1,0 +1,9 @@
+<h1>Create Sale Order</h1>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Save</button>
+</form>
+{% if error %}
+    <p style="color:red;">{{ error }}</p>
+{% endif %}

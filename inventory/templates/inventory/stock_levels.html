@@ -1,0 +1,6 @@
+<h2>Stock Levels</h2>
+<ul>
+    {% for product in products %}
+        <li>{{ product.name }}: {{ product.stock_quantity }} units</li>
+    {% endfor %}
+</ul>

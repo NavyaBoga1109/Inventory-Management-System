@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sale Orders</title>
+</head>
+<body>
+    <h1>Sale Orders</h1>
+    <a href="/sale_order/add/">Add Sale Order</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Sale Date</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sale_order in sale_orders %}
+                <tr>
+                    <td>{{ sale_order.product.name }}</td>
+                    <td>{{ sale_order.quantity }}</td>
+                    <td>${{ sale_order.total_price }}</td>
+                    <td>{{ sale_order.sale_date }}</td>
+                    <td>{{ sale_order.status }}</td>
+                    <td>
+                        <a href="{% url 'edit_sale_order' sale_order.id %}">Edit</a> |
+                        <a href="{% url 'delete_sale_order' sale_order.id %}" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a href="{% url 'cancel_sale_order' sale_order.id %}" onclick="return confirm('Cancel this order?');">Cancel</a> |
+                        <a href="{% url 'complete_sale_order' sale_order.id %}">Complete</a>
+
+                    </td>
+                </tr>
+                <h3>Filter Sale Orders by Status</h3>
+<form method="get">
+    <select name="status" onchange="this.form.submit()">
+        <option value="">All Statuses</option>
+        {% for status in statuses %}
+            <option value="{{ status }}" {% if request.GET.status == status %}selected{% endif %}>
+                {{ status }}
+            </option>
+        {% endfor %}
+    </select>
+</form>
+
+<h2>Sale Orders</h2>
+<ul>
+    {% for sale_order in sale_orders %}
+        <li>
+            {{ sale_order.product.name }} - Quantity: {{ sale_order.quantity }} - 
+            Total Price: ${{ sale_order.total_price }} - Status: {{ sale_order.status }}
+        </li>
+    {% endfor %}
+</ul>
+
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

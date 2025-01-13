@@ -1,0 +1,10 @@
+<h2>Stock Movements</h2>
+<a href="{% url 'add_stock_movement' %}">Add Stock Movement</a>
+<ul>
+    {% for movement in stock_movements %}
+        <li>
+            {{ movement.movement_date }}: {{ movement.movement_type }} {{ movement.quantity }} of {{ movement.product.name }}
+            ({{ movement.notes }})
+        </li>
+    {% endfor %}
+</ul>
